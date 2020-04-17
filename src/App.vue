@@ -1,32 +1,63 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+    <nav>
+      <Navbar></Navbar>
+    </nav>
     <router-view />
   </div>
 </template>
-
+<script>
+import Navbar from "@/components/Navbar.vue";
+export default {
+  data: function() {
+    return {};
+  },
+  components: {
+    Navbar
+  }
+};
+</script>
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+:root {
+  --txt-color: rgb(62, 62, 62);
+  --sh-color: rgb(163, 177, 198, 0.6);
+  --sh2-color: rgba(255, 255, 255, 0.4);
+  --bg-color: rgb(225, 229, 235);
+  --hv-color: rgba(0, 132, 61, 1);
+  --hv2-color: rgba(228, 0, 43, 1);
+  --font: "Montserrat", sans-serif;
+  --img-sh: 20px 25px 56px -14px var(--sh-color);
+  --card-sh: 9px 9px 16px var(--sh-color), -9px -9px 16px var(--sh2-color);
+}
+html {
+  background: var(--bg-color);
+  scroll-behavior: smooth;
+}
+body {
+  font-family: var(--font);
+  color: var(--txt-color);
+  margin: 0;
+}
+/******************************* SCROLL BAR ******************************/
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+  border: none;
 }
 
-#nav {
-  padding: 30px;
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+  border: none;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+::-webkit-scrollbar-thumb {
+  background: var(--hv-color);
+  border: none;
 }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+::-webkit-scrollbar-thumb:hover {
+  background: var(--txt-color);
+  border: none;
 }
 </style>
